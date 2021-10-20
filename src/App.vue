@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="card">
+      <h1>{{ title }}</h1>
+        <div class="form-control">
+           
+           <app-add-note></app-add-note>
+           <app-list-note></app-list-note>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import AppAddNote from './components/AppAddNote.vue'
+import AppListNote from './components/AppListNote.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      title: 'Заметки',
+      placeholderString: "Введите заметку",
+      inputText: '',
+      notes: [],
+    }
+  },
+   methods: {
+
+
+   },
   components: {
-    HelloWorld
+    'app-list-note': AppListNote,
+    'app-add-note':  AppAddNote,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
