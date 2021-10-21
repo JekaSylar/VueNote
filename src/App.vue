@@ -5,6 +5,7 @@
            
            <app-add-note 
               :placeholderString = "placeholderString"
+              @addNote = "AddNote"
            />
            <app-list-note/>
         </div>
@@ -15,7 +16,7 @@
 
 import AppAddNote from './components/AppAddNote.vue'
 import AppListNote from './components/AppListNote.vue'
-//import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -30,13 +31,15 @@ export default {
 
      async createNote() {
 
-        //const res = await axios.post('https://notes-c3c48-default-rtdb.firebaseio.com/notes.json')
+        await axios.post('https://notes-c3c48-default-rtdb.firebaseio.com/notes.json')
 
       }, 
 
       LoaderNote() {
 
-      }
+      },
+
+      
 
    },
   components: {

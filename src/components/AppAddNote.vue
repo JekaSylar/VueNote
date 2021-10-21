@@ -6,7 +6,7 @@
   />
 
            <br>
-   <app-button title = "Добавить"  @click="AddText"/>
+   <app-button title = "Добавить" />
 </template>
 
 <script>
@@ -31,10 +31,7 @@ export default {
 
    methods: {
 
-     AddText() {
-         
-        console.log(this.inputText);
-     }
+     
      
 
    }
