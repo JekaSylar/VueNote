@@ -1,44 +1,37 @@
 <template>
-  <input 
-      type="text" 
-      :placeholder="placeholderString"
-      v-model.trim="inputText"
+  <input
+    type="text"
+    :placeholder="placeholderString"
+    v-model.trim="inputText"
   />
 
-           <br>
-   <app-button title = "Добавить" />
+  <br />
+  <app-button title="Добавить" @click="handleNotes" />
 </template>
 
 <script>
-import AppButton from './AppButton.vue'
+import AppButton from "./AppButton.vue";
 
 export default {
-
-  props: ['placeholderString'],
-
+  props: ["placeholderString"],
+  emits: ["emitNotes"],
   data() {
     return {
-
-      inputText: '',
-    
-    }
+      inputText: "",
+    };
   },
-  
+
   components: {
-
-    'app-button': AppButton,
+    "app-button": AppButton,
   },
 
-   methods: {
-
-     
-     
-
-   }
-  
-}
+  methods: {
+    handleNotes() {
+      this.$emit("emitNotes", this.inputText);
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
