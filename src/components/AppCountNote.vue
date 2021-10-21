@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div>
       <strong>Общее количество: 10</strong> 
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
-  <button class="btn" :class="color" >
-      <slot />
+  <button class="btn" :class="color">
+      {{ title }}
   </button>
 </template>
 
@@ -9,6 +9,9 @@
 
 export default {
 
+
+
+
  props: {
     color: {
       type: String,
@@ -16,12 +19,19 @@ export default {
       validator(value) {
         return ['', 'danger'].includes(value)
       }
+    }, 
+    title: {
+      type: String,
+      required: true
+    }, 
+
+    inputText: {
+      type: String,
+      required: true
     }
   },
  
- data() {
-   
-  },
+ 
 
 }
 </script>

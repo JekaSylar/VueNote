@@ -3,8 +3,10 @@
       <h1>{{ title }}</h1>
         <div class="form-control">
            
-           <app-add-note></app-add-note>
-           <app-list-note></app-list-note>
+           <app-add-note 
+              :placeholderString = "placeholderString"
+           />
+           <app-list-note/>
         </div>
     </div>
 </template>
@@ -13,6 +15,7 @@
 
 import AppAddNote from './components/AppAddNote.vue'
 import AppListNote from './components/AppListNote.vue'
+//import axios from 'axios'
 
 export default {
   name: 'App',
@@ -20,12 +23,20 @@ export default {
     return {
       title: 'Заметки',
       placeholderString: "Введите заметку",
-      inputText: '',
       notes: [],
     }
   },
    methods: {
 
+     async createNote() {
+
+        //const res = await axios.post('https://notes-c3c48-default-rtdb.firebaseio.com/notes.json')
+
+      }, 
+
+      LoaderNote() {
+
+      }
 
    },
   components: {

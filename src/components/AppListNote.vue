@@ -6,24 +6,26 @@
                 Заметка
 
                 
-                <app-button color="danger">Удалить</app-button>
+                <app-button color="danger" title = "Удалить" />
 
               </li>
-              <hr />
-       
+                     
           </ul>
+          <app-count-note/>
           <div >Заметок пока нет. Добавьте первую</div>
 </div>          
 </template>
 
 <script>
 import AppButton from './AppButton.vue'
+import AppCountNote from './AppCountNote.vue'
 
 export default {
 
     components: {
 
     'app-button': AppButton,
+    'app-count-note': AppCountNote,
   },
 
 }
