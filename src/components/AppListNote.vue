@@ -1,18 +1,25 @@
 <template>
 <div>
   <ul class="list">
-              <li class="list-item" v-for="note in notes" :key="note.id">
+              <li class="list-item" v-for="(note, idx) in notes" :key="note.id">
                 
-                 {{ note.text  }}
+                 {{ idx+1 }}. {{  note.text  }} 
                 
-                <app-button color="danger" title = "Удалить" />
+                <app-button 
+                            color="danger" 
+                            title = "Удалить"
+                            @click="handleDelete(note.id)" 
+                />
 
               </li>
                      
           </ul>
-          <app-count-note/>
+
+          <hr>    
+          <app-count-note :noteCount="this.notes.length" />
          
-</div>          
+</div> 
+     
 </template>
 
 <script>
@@ -22,6 +29,7 @@ import AppCountNote from './AppCountNote.vue'
 export default {
 
   props: ['notes'],
+   emits: ["emitDeleteNotes"],
 
     components: {
 
@@ -29,6 +37,14 @@ export default {
     'app-count-note': AppCountNote,
   },
 
+   methods: {
+    handleDelete(id) {
+ 
+       
+      this.$emit("emitDeleteNotes", id);
+    },
+  },
+  
 }
 </script>
 

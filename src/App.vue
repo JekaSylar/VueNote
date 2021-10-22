@@ -6,12 +6,14 @@
         :placeholderString="placeholderString"
         @emitNotes="createNote"
       />
+      
       <app-list-note v-if="notes.length !== 0"
       
         :notes="notes"
+        @emitDeleteNotes="deleteNote"
        />
-
-
+        
+     
       <app-loader-note 
           v-if="notes.length === 0"
           @emitLoaderNotes = "LoaderNote"
@@ -28,23 +30,28 @@ import axios from "axios";
 
 export default {
   name: "App",
-  data() {
+  
+    data() {
     return {
       title: "Заметки",
       placeholderString: "Введите заметку",
       notes: [],
-      dataBase: "https://notes-c3c48-default-rtdb.firebaseio.com/notes.json",
+     
     };
   },
+
+ 
   methods: {
     async createNote(value) {
       
       await axios.post(
-        this.dataBase,
+        "https://notes-c3c48-default-rtdb.firebaseio.com/notes.json",
         {
           text: value,
         }
-      );
+      )
+
+      this.LoaderNote()
 
     
     },
@@ -52,7 +59,7 @@ export default {
     async LoaderNote() {
      
   
-     const {data} = await axios.get(this.dataBase)
+     const {data} = await axios.get("https://notes-c3c48-default-rtdb.firebaseio.com/notes.json")
 
      this.notes = Object.keys(data).map(key => {
             return {
@@ -61,8 +68,14 @@ export default {
             }
           })
 
-     console.log(this.notes)
+      
     },
+
+    async deleteNote(id){
+
+        await axios.delete(`https://notes-c3c48-default-rtdb.firebaseio.com/notes/${id}.json`)
+        this.LoaderNote()
+    }
   },
   components: {
     "app-list-note": AppListNote,

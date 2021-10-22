@@ -1,11 +1,13 @@
 <template>
   <div>
-      <strong>Общее количество: 10</strong> 
+      <strong>Общее количество: {{ noteCount }} </strong> 
   </div>
 </template>
 
 <script>
 export default {
+   
+    props: ['noteCount']
 
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
    <div>
-       <hr>
+      
        <h3>Заметок нету...</h3>
        <app-button title="Загрузить" @click="handleLoaderNotes" />
    </div>
