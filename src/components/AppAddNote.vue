@@ -7,7 +7,7 @@
 
   <br />
   <app-button title="Добавить" @click="handleNotes" />
-  <hr>
+  <hr />
 </template>
 
 <script>

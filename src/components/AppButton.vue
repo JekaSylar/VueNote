@@ -1,41 +1,26 @@
 <template>
   <button class="btn" :class="color">
-      {{ title }}
+    {{ title }}
   </button>
 </template>
 
 <script>
-
-
 export default {
-
-
-
-
- props: {
+  props: {
     color: {
       type: String,
-      default: '',
+      default: "",
       validator(value) {
-        return ['', 'danger'].includes(value)
-      }
-    }, 
+        return ["", "danger"].includes(value);
+      },
+    },
     title: {
       type: String,
-      required: true
-    }, 
-
-    inputText: {
-      type: String,
-      required: true
-    }
+      required: true,
+    },
   },
- 
- 
-
-}
+};
 </script>
 
 <style>
-
 </style>
