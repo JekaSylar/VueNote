@@ -1,10 +1,9 @@
 <template>
 <div>
   <ul class="list">
-              <li class="list-item">
+              <li class="list-item" v-for="note in notes" :key="note.id">
                 
-                Заметка
-
+                 {{ note.text  }}
                 
                 <app-button color="danger" title = "Удалить" />
 
@@ -12,7 +11,7 @@
                      
           </ul>
           <app-count-note/>
-          <div >Заметок пока нет. Добавьте первую</div>
+         
 </div>          
 </template>
 
@@ -21,6 +20,8 @@ import AppButton from './AppButton.vue'
 import AppCountNote from './AppCountNote.vue'
 
 export default {
+
+  props: ['notes'],
 
     components: {
 
